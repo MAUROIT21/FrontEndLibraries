@@ -1,0 +1,63 @@
+// Variables
+$primary-color: black;
+$secondary-color: blue; //orange
+$third-color: rgb(192, 21, 21); // para los nav
+
+// Resets
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+Transicion: Permite definir la transición entre dos estados de un elemento.
+
+div {
+    transition: <property> <duration> <timing-function> <delay>;
+}
+*/
+@mixin transition-ease {
+    transition: all 0.5s ease-in-out;
+  }
+ /* otra opcion =>   
+ @mixin transition-ease {
+    transition: all 0.4s ease-in-out .1s;
+} */
+
+@mixin transition-size {
+    transition: font-size .2s ease-in-out .3s;
+}
+
+@mixin transition-profile {
+    transition: all 0.2s ease-out .3s;
+}
+
+// BUSCAR ANIMACIONES.CSS
+
+//Evalua el color y si tiene menor luminosidad lo cambia.
+@function set-text-color($color) {
+    @if (lightness($color) > 40%) {
+        @return #000;
+    } @else {
+        @return #fff; 
+    }
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width: 1024) {
+        @content;
+    }
+}
+
+@mixin media-xl {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}

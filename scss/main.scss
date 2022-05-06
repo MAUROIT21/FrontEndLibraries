@@ -1,0 +1,85 @@
+//Importando snippets (partes separadas de codigo sass)
+@import './resets';
+//@import './variables';
+
+// Functions
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+// Mixins.
+@mixin flexCenter ($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;    
+    border-style: dashed;
+
+}
+
+@mixin theme($light-theme: true ) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%)
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+    
+}
+
+@mixin bordesParrafos {
+    border-style: groove;
+    border-color: crimson;
+    border-width: 10px;
+    border-radius: 5px;
+    
+}
+
+body {
+    background: $primary-color;
+    color: $text-color;
+}
+
+.main {
+    @include flexCenter(row);
+    width: 100% - 40%; //Operaciones con Sass
+    margin: 0 auto;
+   
+
+    //& es igual al padre
+    #{&}__paragraph1 {
+        font-weight: weight(extrabold);
+        @include bordesParrafos();
+        margin: 20px; 
+
+        // Nesting otros elementos.
+        &:hover {
+            color: blueviolet;
+        }
+    }
+
+    #{&}__paragraph2 {
+        @extend .main__paragraph1; // Copia las reglas del parrafo anterior y agregamos un evento de Hover solo para este parrafo2
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    &:hover {
+        color: yellow;
+    }
+
+    @include mobile {
+        flex-direction: column; // cuando pasa los 800 px cambia a columnas.
+
+    }
+}
+
+.light {
+    @include theme ($light-theme: false); //true es claro, por defecto o manualmente
+}

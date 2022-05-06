@@ -1,0 +1,93 @@
+// (este archivo es : idem main.scss)
+// Aqui van los parcials:
+@import 'configPf';
+@import 'homePf';
+@import 'menuPf';
+@import 'aboutPf';
+@import 'projectsPf';
+@import 'contactPf';
+@import 'responsivePf';
+
+
+body {
+    background: $primary-color;
+    color: set-text-color($primary-color);
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+
+    li {
+        display: inline;
+    }
+}
+
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+a {
+    color: set-text-color($primary-color);
+    text-decoration: none;
+    @include transition-ease;
+
+    &:hover {
+        color: $third-color;
+    }
+
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+header {
+    
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    padding: 1rem;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+
+    .profile { // : hover ver esto!! que vaya cambiando el color con efecto de afuera al centro...
+        @include transition-profile;
+        @include transition-size;
+
+        &:hover {
+            color: $secondary-color;
+            font-size: xx-large;
+        }
+    }
+
+    .social-icons {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+    
+
+        a {
+            padding: .4rem;
+            @include transition-ease;   
+            @include transition-size;
+
+            &:hover {
+                color: $secondary-color;
+                font-size: x-large;
+            }
+        }
+    }
+}
+
+footer {
+    font-size: 1rem;
+    position: fixed;
+    bottom: .4rem;
+    right: 1rem;
+    text-align: right;
+    padding: 1rem;
+    color: set-text-color($primary-color);
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Testeo</title>
+    <style>
+    /*     * {
+            box-sizing: border-box;
+        } */
+        p, 
+ul {
+  border: 4px solid rebeccapurple;
+  padding: .5em;
+}
+
+.block,
+li {
+  border: 2px solid red;
+  padding: .5em;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+.block {
+  display: block;
+}      
+
+.cajaEstandar-alternativo {
+    
+    box-sizing: border-box;  /* Probar sin border box */ 
+    width: 300px;
+    border: 5px solid green;
+    padding: 15px; 
+
+}
+    
+    </style>
+</head>
+<body>
+    <p>I am a paragraph. A short one.</p>
+<ul>
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+<p>I am another paragraph. Some of the <span class="block">words</span> have been wrapped in a <span>span element</span>.</p>
+
+<div class="cajaEstandar-alternativo">
+    <p> Modelo de caja estandar(se suman los px de padding y border) VS modelo alternativo/border-box (no se suman los px del padding y border)</p>
+
+</div>
+</body>
+</html>

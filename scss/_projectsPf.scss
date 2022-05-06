@@ -1,0 +1,120 @@
+
+.projects {
+    padding-bottom: 2rem;
+
+    &__bio-image {
+        height: 60vh;
+        width: 100%;
+        background: 
+            linear-gradient(
+                to right, 
+                rgba($primary-color, .9),
+                rgba($secondary-color, .2)
+            ),
+                
+            url(/dist/img/model-1.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    
+        .text-secondary {
+            
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            }   
+        }
+
+      &__items {
+        width: 60vh;
+        margin: 2rem auto 0 auto;
+        display: grid;
+        // para verlo en grilla (cuadricula) => 
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        }
+        
+        &__item {
+            position: relative;
+            border-bottom: 5px solid $secondary-color;
+            overflow: hidden;
+            cursor: pointer;
+            
+            img {
+                width: 100%;
+                
+            }
+
+            &::after { // estado inicial del efecto antes del hover
+                content: '';
+                position: absolute;
+                top: 50%; // desde donde comienza a subir el efecto azul
+                left: 0;
+                height: 100%; // 94% deja un espacio para ver los iconos/botones
+                width: 100%;
+                background: $secondary-color;
+                opacity: 0;
+                @include transition-ease;
+            }
+
+            &:hover { // aqui digo como sera el efecto cuando aparezca 
+                &::after {
+                    top: 0;
+                    opacity: 0.9;
+                    /* opcion de ver mensaje cuando hago hover
+                     content: 'Ver el proyecto!';
+                    font-style: italic;
+                    font-size: larger;
+                    //place-content: center center;
+                    padding: 35% 35%; */
+                }
+                .projects__btn{
+                    opacity: 1;
+                }
+            }
+
+        }
+    
+    &__btns {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__btn {
+        
+        opacity: 0;
+        color: set-text-color($primary-color);
+        @include transition-ease;
+
+        &:hover {
+            font-size: larger;
+            border-style: solid;
+            border-radius: 10px;
+            padding: 10%;
+            color: set-text-color(set-text-color($secondary-color));
+            @include transition-size;
+            
+        }
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    footer {
+        transform: rotate(90deg)
+        translate(-3rem, -5rem);
+    }
+}
+
+
