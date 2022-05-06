@@ -12,8 +12,8 @@
             rgba($secondary-color, .2)
         ),
             
-        url('/dist/img/model-1.jpg');
-    background-size: cover;
+        url('/dist/img/model-1.jpg') center top;
+        background-size: cover;
 
     h2 {
         font-size: 3rem;
