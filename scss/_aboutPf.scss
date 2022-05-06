@@ -12,8 +12,8 @@
                 rgba($secondary-color, .2)
             ),
                 
-            url(/dist/img/model-1.jpg);
-        background-size: cover;
+            url('/dist/img/model-1.jpg');
+            background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
